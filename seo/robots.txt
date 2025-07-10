@@ -1,0 +1,7 @@
+# robots.txt - Permite rastreamento geral, bloqueia áreas administrativas hipotéticas
+
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://projetonossosamba.com/seo/sitemap.xml

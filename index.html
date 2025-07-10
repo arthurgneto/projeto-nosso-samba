@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Projeto Nosso Samba – Samba com alma e tradição</title>
+<meta name="description" content="Projeto Nosso Samba – grupo de samba apaixonado pela cultura brasileira. Shows, eventos e aulas de samba." />
+<link rel="canonical" href="https://projetonossosamba.com/" />
+<meta property="og:title" content="Projeto Nosso Samba – Samba com alma e tradição" />
+<meta property="og:description" content="Projeto Nosso Samba – grupo de samba apaixonado pela cultura brasileira. Shows, eventos e aulas de samba." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://projetonossosamba.com/" />
+<meta property="og:image" content="https://projetonossosamba.com/assets/images/og-image.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Projeto Nosso Samba – Samba com alma e tradição" />
+<meta name="twitter:description" content="Projeto Nosso Samba – grupo de samba apaixonado pela cultura brasileira. Shows, eventos e aulas de samba." />
+<meta name="twitter:image" content="https://projetonossosamba.com/assets/images/og-image.jpg" />
+<link rel="icon" href="assets/images/favicon.png" type="image/png" />
+
+<style>
+  /* RESET */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin:0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000;
+    color: #f1e7c9;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+  }
+  a {
+    color: #bfa14a;
+    text-decoration: none;
+  }
+  a:hover, a:focus {
+    color: #e0c25d;
+    outline: none;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+  }
+  /* CONTAINER */
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1rem;
+  }
+
+  /* HEADER */
+header {
+  background: linear-gradient(90deg, #000, #bfa14a);
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center; /* centraliza verticalmente */
+  justify-content: space-between;
+  padding: 0 1rem;
+  z-index: 9999;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+}
+
+/* Logo: limitar tamanho, evitar quebra, responsivo */
+header .logo {
+  font-weight: 700;
+  font-size: 1.4rem; /* menor em mobile */
+  color: #fff;
+  letter-spacing: 1.5px;
+  white-space: nowrap; /* evita quebra em linhas */
+  cursor: pointer;
+  max-width: 60%; /* para não ocupar muito espaço no header */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Para telas menores */
+@media (max-width: 768px) {
+  header .logo {
+    font-size: 1.2rem;
+    max-width: 70%;
+  }
+
+  /* Ajuste botão menu */
+  #btn-menu {
+    font-size: 1.8rem;
+  }
+}
+
+
+  /* NAV MENU */
+  nav {
+    display: flex;
+    align-items: center;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  nav ul li a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+  }
+  nav ul li a[aria-current="page"] {
+    border-bottom: 2px solid #e0c25d;
+  }
+
+  /* MOBILE MENU BUTTON */
+  #btn-menu {
+    display: none;
+    font-size: 2rem;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* HERO */
+  .hero {
+    background: url('assets/images/hero-samba.jpg') center center/cover no-repeat;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 60px; /* height header */
+    text-align: center;
+    color: #f1e7c9;
+    text-shadow: 2px 2px 6px #000;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 900;
+  }
+  .hero p {
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  .hero a.btn {
+    background-color: #bfa14a;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    font-weight: 700;
+    color: #000;
+    box-shadow: 0 4px 10px rgba(191,161,74,0.5);
+    transition: background-color 0.3s ease;
+  }
+  .hero a.btn:hover, .hero a.btn:focus {
+    background-color: #e0c25d;
+    outline: none;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 4rem 1rem;
+  }
+  section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #bfa14a;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+  }
+
+  /* QUEM SOMOS */
+  #quem-somos .content {
+    max-width: 900px;
+    margin: auto;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: center;
+    color: #f1e7c9;
+  }
+
+  /* SERVIÇOS */
+  #servicos .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: auto;
+  }
+  #servicos .card {
+    background: rgba(255,255,255,0.05);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(191,161,74,0.3);
+    transition: transform 0.3s ease;
+  }
+  #servicos .card:hover, #servicos .card:focus-within {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #bfa14a;
+  }
+  #servicos .card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #e0c25d;
+  }
+  #servicos .card p {
+    font-size: 1rem;
+    color: #f1e7c9;
+  }
+
+  /* DEPOIMENTOS */
+  #depoimentos .depoimentos-wrapper {
+    max-width: 900px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  #depoimentos blockquote {
+    background: rgba(255,255,255,0.05);
+    padding: 1.5rem 2rem;
+    border-left: 5px solid #bfa14a;
+    border-radius: 10px;
+    font-style: italic;
+    color: #f1e7c9;
+  }
+  #depoimentos blockquote footer {
+    margin-top: 1rem;
+    text-align: right;
+    font-weight: 700;
+    color: #e0c25d;
+  }
+
+  /* CONTATO */
+  #contato form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  #contato label {
+    font-weight: 700;
+  }
+  #contato input, #contato textarea {
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    resize: vertical;
+  }
+  #contato input:focus, #contato textarea:focus {
+    outline: 3px solid #bfa14a;
+    background: #1a1a1a;
+    color: #f1e7c9;
+  }
+  #contato button {
+    background-color: #bfa14a;
+    border: none;
+    padding: 1rem;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #000;
+    box-shadow: 0 4px 10px rgba(191,161,74,0.5);
+    transition: background-color 0.3s ease;
+  }
+  #contato button:hover, #contato button:focus {
+    background-color: #e0c25d;
+    outline: none;
+  }
+
+  /* RODAPÉ */
+  footer {
+    background-color: #111;
+    padding: 2rem 1rem;
+    text-align: center;
+    color: #777;
+    font-size: 0.9rem;
+  }
+  footer .social-links {
+    margin: 1rem 0 0;
+  }
+  footer .social-links a {
+    margin: 0 0.5rem;
+    color: #bfa14a;
+    font-weight: 700;
+  }
+  footer .social-links a:hover,
+  footer .social-links a:focus {
+    color: #e0c25d;
+  }
+
+  /* WHATSAPP FLUTUANTE */
+  #whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10000;
+    transition: background-color 0.3s ease;
+  }
+  #whatsapp:hover,
+  #whatsapp:focus {
+    background-color: #20b858;
+    outline: none;
+  }
+  #whatsapp svg {
+    fill: white;
+    width: 30px;
+    height: 30px;
+  }
+
+  /* RESPONSIVO */
+  @media (max-width: 768px) {
+    nav ul {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      background: #111;
+      top: 60px;
+      right: 0;
+      width: 220px;
+      height: 100vh;
+      padding: 2rem 1rem;
+      gap: 2rem;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.8);
+      transition: transform 0.3s ease;
+      transform: translateX(100%);
+    }
+    nav ul.show {
+      display: flex;
+      transform: translateX(0);
+    }
+    #btn-menu {
+      display: block;
+    }
+  }
+</style>
+
+</head>
+<body>
+
+<header>
+  <a href="#home" class="logo" aria-label="Projeto Nosso Samba">Projeto Nosso Samba</a>
+  <button id="btn-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">&#9776;</button>
+  <nav role="navigation" aria-label="Menu principal">
+    <ul id="nav-menu">
+      <li><a href="#home" aria-current="page">Início</a></li>
+      <li><a href="#quem-somos">Quem Somos</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#depoimentos">Depoimentos</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li><a href="https://www.instagram.com/projeto.nossosamba" target="_blank" rel="noopener" aria-label="Instagram Projeto Nosso Samba">Instagram</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section id="home" class="hero" role="banner">
+    <div class="container">
+      <h1>Projeto Nosso Samba</h1>
+      <p>Samba com alma, coração e tradição. Venha sentir o ritmo do Brasil com a gente!</p>
+      <a href="#contato" class="btn" role="button">Fale Conosco</a>
+    </div>
+  </section>
+
+  <section id="quem-somos" tabindex="-1" aria-label="Quem Somos" >
+    <h2>Quem Somos</h2>
+    <div class="content container">
+      <p>O Projeto Nosso Samba é um grupo dedicado à preservação e divulgação da cultura do samba brasileiro. Com uma trajetória de paixão e música, levamos alegria e energia em cada apresentação, conectando pessoas através do ritmo e da tradição.</p>
+    </div>
+  </section>
+
+  <section id="servicos" tabindex="-1" aria-label="Serviços">
+    <h2>Serviços</h2>
+    <div class="cards container" role="list">
+      <article class="card" role="listitem" tabindex="0">
+        <h3>Shows ao Vivo</h3>
+        <p>Apresentações vibrantes em bares, festas e eventos culturais, com repertório diversificado e animado.</p>
+      </article>
+      <article class="card" role="listitem" tabindex="0">
+        <h3>Aulas de Samba</h3>
+        <p>Aulas para todos os níveis, do iniciante ao avançado, para aprender a arte do samba com nossos músicos experientes.</p>
+      </article>
+      <article class="card" role="listitem" tabindex="0">
+        <h3>Eventos Personalizados</h3>
+        <p>Organização e participação em eventos corporativos, aniversários e celebrações com clima autêntico de samba.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="depoimentos" tabindex="-1" aria-label="Depoimentos">
+    <h2>Depoimentos</h2>
+    <div class="depoimentos-wrapper container">
+      <blockquote tabindex="0">
+        “A energia do Projeto Nosso Samba é contagiante! Cada show é uma festa que reúne amigos e família.”<footer>– Carla M.</footer>
+      </blockquote>
+      <blockquote tabindex="0">
+        “Aprender samba com eles mudou minha vida. Professores incríveis e uma vibe maravilhosa.”<footer>– João P.</footer>
+      </blockquote>
+    </div>
+  </section>
+
+<section id="contato" class="contact">
+  <div class="container">
+    <h2>Contato</h2>
+    <form action="https://formsubmit.co/arthurgneto10@gmail.com" method="POST">
+      
+      <!-- Proteções -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://projetonossosamba.com/obrigado.html">
+
+      <label for="nome">Nome</label>
+      <input type="text" name="nome" id="nome" required>
+
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" required>
+
+      <label for="mensagem">Mensagem</label>
+      <textarea name="mensagem" id="mensagem" rows="5" required></textarea>
+
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+
+    <p class="alt-contact">
+      WhatsApp: <a href="https://wa.me/5514996243895">(14) 99624-3895</a><br>
+      Email: projetonossosambabauru@gmail.com<br>
+      Bauru - SP
+    </p>
+  </div>
+</section>
+
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2025 Projeto Nosso Samba - Todos os direitos reservados.</p>
+    <div class="social-links" aria-label="Redes sociais">
+      <a href="https://www.instagram.com/projeto.nossosamba" target="_blank" rel="noopener" aria-label="Instagram Projeto Nosso Samba">Instagram</a> |
+      <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook Projeto Nosso Samba">Facebook</a> |
+      <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter Projeto Nosso Samba">Twitter</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flutuante -->
+<a href="https://wa.me/5514996243895" id="whatsapp" aria-label="WhatsApp Projeto Nosso Samba" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M20.52 3.48A11.88 11.88 0 0012 0a11.86 11.86 0 00-9.56 5A11.82 11.82 0 002 15.7l-2 7 7-2a11.85 11.85 0 005.55 1.3h.02a11.88 11.88 0 008.95-19.5zm-8.07 15.2a8.49 8.49 0 01-4.43-1.3l-.32-.2-3.27.86.87-3.18-.21-.33a8.56 8.56 0 1111.44 3.7 8.52 8.52 0 01-4.08.24zm4.5-5.57c-.26-.13-1.54-.75-1.78-.83-.24-.08-.42-.13-.6.13-.17.26-.67.83-.82 1-.15.17-.3.2-.56.07-.26-.13-1.11-.41-2.12-1.3-.78-.7-1.3-1.56-1.45-1.82-.15-.26-.02-.4.11-.54.11-.12.26-.3.39-.45.13-.15.17-.26.26-.43.08-.17.04-.31-.02-.44-.07-.13-.6-1.45-.82-1.98-.22-.52-.44-.45-.6-.46-.15-.01-.32-.01-.5-.01a1.12 1.12 0 00-.8.37 3.38 3.38 0 00-1.3 3.1 7.61 7.61 0 004.35 5.76 7.16 7.16 0 003.2.98c.43 0 1.55-.63 1.77-1.23.22-.6.22-1.12.15-1.23-.08-.1-.27-.16-.56-.29z"></path>
+  </svg>
+</a>
+
+<script>
+  // Menu hambúrguer mobile toggle
+  const btnMenu = document.getElementById('btn-menu');
+  const navMenu = document.getElementById('nav-menu');
+
+  btnMenu.addEventListener('click', () => {
+    const expanded = btnMenu.getAttribute('aria-expanded') === 'true' || false;
+    btnMenu.setAttribute('aria-expanded', !expanded);
+    navMenu.classList.toggle('show');
+  });
+
+  // Fechar menu ao clicar em link (mobile)
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (navMenu.classList.contains('show')) {
+        navMenu.classList.remove('show');
+        btnMenu.setAttribute('aria-expanded', false);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
